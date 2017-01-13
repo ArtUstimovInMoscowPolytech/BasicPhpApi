@@ -1,16 +1,16 @@
 # Basic PHP API
 
-Простейший пример Web API на PHP и взаимодействия с ним из C#.
+Простейший пример Web API на PHP и взаимодействия с ним из C#
 
 ## Подход первый (предпочтительный)
 
-В данном случае JSON извлекается из тела запроса.
+В данном случае JSON извлекается из тела запроса
 
 ### Выполнение запроса из Postman
 
 ![first](https://raw.githubusercontent.com/Ustimov/BasicPhpApi/master/img/1.png)
 
-### Выполнение запроса из C#
+### Выполнение запроса из C# #
 
 ```csharp
 var json = new JObject { { "UserName", userName }, { "Password", password } };
@@ -28,13 +28,13 @@ $password = $request["Password"];
 
 ## Подход второй
 
-JSON передаётся как значение поля формы.
+JSON передаётся как значение поля формы
 
 ### Выполнение запроса из Postman
 
 ![first](https://raw.githubusercontent.com/Ustimov/BasicPhpApi/master/img/2.png)
 
-### Выполнение запроса из C#
+### Выполнение запроса из C# #
 
 ```csharp
 var json = new JObject { { "UserName", userName }, { "Password", password } };
@@ -53,4 +53,4 @@ $password = $request["Password"];
 
 # Примечание
 
-Исходный код содержит полный пример и включает несколько PHP скриптов, а также консольный C# клиент.
+Исходный код содержит полный пример и включает несколько PHP скриптов, а также консольный C# клиент
