@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
@@ -9,7 +10,7 @@ namespace ApiClient
 	{
 		private static DataService _instance = new DataService();
 		private HttpClient _client = new HttpClient();
-		private string _baseUrl = "http://ppa.localhost/php";
+		private string _baseUrl = "SET_YOUR_SERVER_ADDRESS_HERE";
 
 		protected DataService()
 		{
@@ -35,8 +36,13 @@ namespace ApiClient
 		private async Task<string> PostAsync(string script, string json)
 		{
 			try
-			{	
+			{
 				var response = await _client.PostAsync($"{_baseUrl}/{script}", new StringContent(json));
+
+				// Если нужно отправить как содержимое формы
+				//var content = new FormUrlEncodedContent(new[] { new KeyValuePair<string, string>("data", json) });
+				//var response = await _client.PostAsync($"{_baseUrl}/{script}", content);
+
 				return await response.Content.ReadAsStringAsync();
 			}
 			catch (Exception e)
